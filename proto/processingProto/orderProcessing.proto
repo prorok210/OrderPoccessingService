@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package orderProcessing;
+
+option go_package = "github.com/username/OrderProcessingService/proto";
+
+message OrderInfo {
+    int32 uniqNumber = 1;
+    string orderName = 2;
+}
+
+message OrderStatus {
+    int32 uniqNumber = 1;
+    string status = 2;
+}
+
+
+service orderProcessingService {
+    rpc AddOrder(OrderInfo) returns( OrderStatus) {}
+    rpc CheckStatus(OrderInfo) returns (OrderStatus) {}
+}
